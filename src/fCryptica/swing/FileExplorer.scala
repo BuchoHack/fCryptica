@@ -8,10 +8,11 @@ import java.awt.datatransfer.{StringSelection,Transferable}
 
 object FileExplorer {
 	val home_directory = System.getProperty("user.home")
-	// val current_directory = System.getProperty("user.dir")
+	val current_directory = System.getProperty("user.dir")
 
 	def apply(): Tree = {
-		val tree = new Tree(new DefaultTreeModel((new FileExplorer()).MakeRoot(home_directory)))
+//		val tree = new Tree(new DefaultTreeModel((new FileExplorer()).MakeRoot(home_directory)))
+		val tree = new Tree(new DefaultTreeModel((new FileExplorer()).MakeRoot(current_directory)))
 		tree.peer.setTransferHandler(new TreePathTransferHandler())
 		tree.peer.setDragEnabled(true)
 		return tree
